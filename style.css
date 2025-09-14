@@ -225,20 +225,41 @@ span{
 }
 
 @keyframes words{
-    0%, 20%{
-        content: "Web Developer";
+    0%, 8.3%{
+        content: "D";
     }
-    21%, 40%{
-        content: "Developer";
+    8.3%, 16.6%{
+        content: "Da";
     }
-    41%, 60%{
-        content: "Web Designer";
+    16.6%, 24.9%{
+        content: "Dat";
     }
-    61%, 80%{
+    24.9%, 33.2%{
+        content: "Data";
+    }
+    33.2%, 41.5%{
+        content: "Data ";
+    }
+    41.5%, 49.8%{
+        content: "Data A";
+    }
+    49.8%, 58.1%{
+        content: "Data An";
+    }
+    58.1%, 66.4%{
+        content: "Data Ana";
+    }
+    66.4%, 74.7%{
+        content: "Data Anal";
+    }
+    74.7%, 83%{
+        content: "Data Analy";
+    }
+    83%, 91.3%{
+        content: "Data Analys";
+    }
+    91.3%, 100%{
         content: "Data Analyst";
-    }
-    81%, 100%{
-        content: "";
     }
 }
 
@@ -266,4 +287,70 @@ span{
         width: 70vw;
         margin-top: 4rem;
     }
+}
+
+.heading {
+    text-align: center;
+    font-size: 4rem;
+    margin-bottom: 3rem;
+}
+
+.skills-content, .edu-content, .project-content {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: center;
+}
+
+.skill-box, .edu-box, .project-box {
+    background: #161616;
+    padding: 2rem;
+    border-radius: 1rem;
+    border: 1px solid #b74b4b;
+    flex: 1 1 30rem;
+    text-align: center;
+    transition: 0.3s ease;
+}
+
+.skill-box:hover, .edu-box:hover, .project-box:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 20px #b74b4b;
+}
+
+.skill-box i, .project-box i {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    color: #b74b4b;
+}
+
+.contact form {
+    max-width: 70rem;
+    margin: auto;
+    text-align: center;
+}
+
+.contact form .input-box {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.contact form .input-box input,
+.contact form textarea {
+    width: 100%;
+    padding: 1.2rem;
+    margin: 1rem 0;
+    border-radius: 0.8rem;
+    border: 1px solid #b74b4b;
+    background: transparent;
+    color: white;
+    resize: none;
+}
+
+.contact form .input-box input {
+    width: 48%;
+}
+
+.contact form textarea {
+    height: 15rem;
 }
