@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,12 +8,13 @@
     <link rel="stylesheet" href="style.css">
     <title>Portfolio Website</title>
 </head>
+
 <body>
     <header>
         <a href="#" class="logo">Sabil</a>
 
         <nav>
-            <a href="#home" class="active"> Home </a>
+            <a href="#home"> Home </a>
             <a href="#skills">Skills</a>
             <a href="#education">Education</a>
             <a href="#projects">Project</a>
@@ -29,13 +31,13 @@
             <h1>Hi, It's <span>Sabilul Huda</span></h1>
             <h3 class="typing-text">I'm a <span></span></h3>
             <p>My name is Sabilul Huda. I graduated from SMA Negeri 2 Cirebon in
-2023. I am currently studying at Bandung Institute of Technology (ITB),
-majoring in Informatics Engineering. I have experience competing in
-high school, particularly in mathematics. I have won several
-competitions, both at the city and national levels. I am interested in a
-career in IT, particularly in data analysis, artificial intelligence, and
-software engineering, as both fields require strong problem-solving
-skills, which I developed during my high school olympiad participation.</p>
+                2023. I am currently studying at Bandung Institute of Technology (ITB),
+                majoring in Informatics Engineering. I have experience competing in
+                high school, particularly in mathematics. I have won several
+                competitions, both at the city and national levels. I am interested in a
+                career in IT, particularly in data analysis, artificial intelligence, and
+                software engineering, as both fields require strong problem-solving
+                skills, which I developed during my high school olympiad participation.</p>
             <div class="social-icons">
                 <a href="https://www.linkedin.com/in/sabilul-huda-65b194235/"><i class="fa-brands fa-linkedin"></i></a>
                 <a href="https://github.com/bill2247"><i class="fa-brands fa-github"></i></a>
@@ -128,5 +130,51 @@ skills, which I developed during my high school olympiad participation.</p>
             <input type="submit" value="Send Message" class="btn">
         </form>
     </section>
+
+    <script>
+        const navLinks = document.querySelectorAll('header nav a[href^="#"]');
+        const sections = document.querySelectorAll('section[id]');
+
+        function setActiveLink(targetId) {
+            navLinks.forEach((link) => {
+                const isActive = link.getAttribute('href') === `#${targetId}`;
+                link.classList.toggle('active', isActive);
+            });
+        }
+
+        function updateActiveByScroll() {
+            const scrollPosition = window.scrollY + 140;
+            let currentSectionId = sections[0]?.id || 'home';
+
+            sections.forEach((section) => {
+                if (scrollPosition >= section.offsetTop) {
+                    currentSectionId = section.id;
+                }
+            });
+
+            setActiveLink(currentSectionId);
+        }
+
+        navLinks.forEach((link) => {
+            link.addEventListener('click', () => {
+                const targetId = link.getAttribute('href').replace('#', '');
+                setActiveLink(targetId);
+            });
+        });
+
+        window.addEventListener('scroll', updateActiveByScroll);
+        window.addEventListener('hashchange', () => {
+            const targetId = window.location.hash.replace('#', '');
+            if (targetId) setActiveLink(targetId);
+        });
+
+        const initialHash = window.location.hash.replace('#', '');
+        if (initialHash) {
+            setActiveLink(initialHash);
+        } else {
+            updateActiveByScroll();
+        }
+    </script>
 </body>
+
 </html>
